@@ -24,10 +24,12 @@ usage: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE
 
 options:
   -h, --help   show this help message and exit
+  -d           decrypt package
   -e           encrypt package
   -p PASSWORD  password
   -f FILE      input file
   -o FILE      output file
+  --pretty     human readable format with indents
 ```
 
 # Example
