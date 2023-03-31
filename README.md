@@ -10,10 +10,13 @@ Tool to encrypt and decrypt the KUMA packages
 - argparse
 - json
 - Crypto
-`pip install pycryptodome`
+
+  `pip install pycryptodome`
 - bson
-`pip install pymongo`
-`pip install bson (not usre)`
+
+  `pip install pymongo`
+
+  `pip install bson (not usre)`
 
 # Usage
 ```
