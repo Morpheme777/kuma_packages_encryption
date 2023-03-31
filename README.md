@@ -20,7 +20,7 @@ Tool to encrypt and decrypt the KUMA packages
 
 # Usage
 ```
-usage: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE
+usage: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE [--pretty]
 
 options:
   -h, --help   show this help message and exit
