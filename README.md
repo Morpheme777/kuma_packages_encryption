@@ -5,6 +5,7 @@ Tool to encrypt and decrypt the KUMA packages
 `git clone https://github.com/Morpheme777/kuma_packages_encryption`
 
 # Requirements:
+python 3.7+
 - sys
 - os
 - argparse
