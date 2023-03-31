@@ -1,19 +1,19 @@
 # kuma_packages_encryption
 Tool to encrypt and decrypt the KUMA packages
 
-Requirements:
-default:
+# Requirements:
+- default:
 sys
 os
 argparse
 json
 
-# pip install pycryptodome
+- pip install pycryptodome
 Crypto
 
-# pip install pymongo
-# ?pip install bson
+- pip install pymongo
 bson
+pip install bson
 
 *usage*: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE
 
