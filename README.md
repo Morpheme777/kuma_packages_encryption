@@ -1,25 +1,34 @@
 # kuma_packages_encryption
 Tool to encrypt and decrypt the KUMA packages
 
+# Installation
+`git clone https://github.com/Morpheme777/kuma_packages_encryption`
+
 # Requirements:
-- default:
-sys
-os
-argparse
-json
+- sys
+- os
+- argparse
+- json
+- Crypto
+`pip install pycryptodome`
+- bson
+`pip install pymongo`
+`pip install bson (not usre)`
 
-- pip install pycryptodome
-Crypto
+# Usage
+```
+usage: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE
 
-- pip install pymongo
-bson
-pip install bson
-
-*usage*: python3 .\kuma_package.py [-h] [-d | -e] -p PASSWORD -f FILE -o FILE
-
-*options*:
+options:
   -h, --help   show this help message and exit
   -e           encrypt package
   -p PASSWORD  password
   -f FILE      input file
   -o FILE      output file
+```
+
+# Example
+```
+python .\kuma_package.py -e -p 'MyStr0ngP@ss!' -f package.json -o pacakge
+python .\kuma_package.py -d -p 'MyStr0ngP@ss!' -f pacakge -o package.json --pretty
+```
