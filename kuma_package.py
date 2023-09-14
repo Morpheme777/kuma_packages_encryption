@@ -10,6 +10,14 @@ from Crypto.Hash import SHA256
 # pip install pymongo
 # ?pip install bson
 import bson
+import codecs
+
+class EncoderForBytesObj(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (bytes, bytearray)):
+            return obj.decode("utf-8") # <- or any other encoding of your choice
+        # Let the base class default method raise the TypeError
+        return json.JSONEncoder.default(self, obj)
 
 def decrypt(input_file, output_file, key, pretty):
     with open(input_file, 'rb') as f:
@@ -20,10 +28,10 @@ def decrypt(input_file, output_file, key, pretty):
 
     with open(output_file, 'w', encoding='utf8') as f:
         indent = 2 if pretty else None
-        json.dump(json_data, f, indent = indent, ensure_ascii=False)
+        json.dump(json_data, f, cls = EncoderForBytesObj, indent = indent)
 
 def encrypt(input_file, output_file, key):
-    with open(input_file, 'r') as f:
+    with codecs.open(input_file, 'r') as f:
         json_data = json.load(f)
 
     bson_data = encode_bson(json_data)
