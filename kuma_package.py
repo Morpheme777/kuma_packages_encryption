@@ -69,26 +69,27 @@ def encode_bson(data):
     return encoded_data
 
 ### Start program ###
-parser = argparse.ArgumentParser(f'python3 {sys.argv[0]}')
-group = parser.add_mutually_exclusive_group()
-group.add_argument("-d", action = 'store_true', help = 'decrypt package', required=False)
-group.add_argument("-e", action = 'store_true', help = 'encrypt package', required=False)
-parser.add_argument("-p", metavar = 'PASSWORD', help = 'password', required=True)
-parser.add_argument("-f", metavar = 'FILE', help = 'input file', required=True)
-parser.add_argument("-o", metavar = 'FILE', help = 'output file', required=True)
-parser.add_argument("--pretty", action = 'store_true', help = 'human readable format with indents', required=False)
-args = parser.parse_args()
-if args.d == args.e:
-    parser.print_help()
-    exit('Error: choose an action encrypt (-e) or dycrypt (-d)')
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(f'python3 {sys.argv[0]}')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-d", action = 'store_true', help = 'decrypt package', required=False)
+    group.add_argument("-e", action = 'store_true', help = 'encrypt package', required=False)
+    parser.add_argument("-p", metavar = 'PASSWORD', help = 'password', required=True)
+    parser.add_argument("-f", metavar = 'FILE', help = 'input file', required=True)
+    parser.add_argument("-o", metavar = 'FILE', help = 'output file', required=True)
+    parser.add_argument("--pretty", action = 'store_true', help = 'human readable format with indents', required=False)
+    args = parser.parse_args()
+    if args.d == args.e:
+        parser.print_help()
+        exit('Error: choose an action encrypt (-e) or decrypt (-d)')
 
-password = args.p
-input_file = args.f
-output_file = args.o
-pretty = args.pretty
-key = password_to_key(password)
+    password = args.p
+    input_file = args.f
+    output_file = args.o
+    pretty = args.pretty
+    key = password_to_key(password)
 
-if args.d:
-    decrypt(input_file, output_file, key, pretty)
-elif args.e:
-    encrypt(input_file, output_file, key)
+    if args.d:
+        decrypt(input_file, output_file, key, pretty)
+    elif args.e:
+        encrypt(input_file, output_file, key)
