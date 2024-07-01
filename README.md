@@ -38,3 +38,14 @@ options:
 python .\kuma_package.py -e -p 'MyStr0ngP@ss!' -f package.json -o pacakge
 python .\kuma_package.py -d -p 'MyStr0ngP@ss!' -f pacakge -o package.json --pretty
 ```
+# Known issues
+1. Problem with bson module
+```
+AttributeError: module 'bson' has no attribute 'BSON'
+```
+Solution:
+```
+pip uninstall bson
+pip uninstall pymongo
+pip install pymongo
+```
