@@ -17,7 +17,7 @@ python 3.7+
 
   `pip install pymongo`
 
-  `pip install bson (not sure)`
+  `pip install bson  # (not sure)`
 
 # Usage
 ```
